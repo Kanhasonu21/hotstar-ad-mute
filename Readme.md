@@ -21,7 +21,7 @@ An enhanced version of the Hotstar Ad Muter extension that gives you complete co
 
 1. Clone this repository:
 ```bash
-git clone [your-repository-url]
+git clone [https://github.com/Kanhasonu21/hotstar-ad-mute]
 ```
 
 2. Load the extension:
