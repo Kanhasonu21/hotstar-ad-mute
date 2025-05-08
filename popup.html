@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <style>
+    body {
+      width: 250px;
+      padding: 10px;
+      font-family: Arial, sans-serif;
+    }
+    .control-group {
+      margin: 15px 0;
+      padding: 10px;
+      border: 1px solid #eee;
+      border-radius: 4px;
+    }
+    .switch {
+      display: flex;
+      align-items: center;
+      margin: 10px 0;
+    }
+    .toggle {
+      position: relative;
+      display: inline-block;
+      width: 60px;
+      height: 34px;
+    }
+    .toggle input {
+      opacity: 0;
+      width: 0;
+      height: 0;
+    }
+    .slider {
+      position: absolute;
+      cursor: pointer;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background-color: #ccc;
+      transition: .4s;
+      border-radius: 34px;
+    }
+    .slider:before {
+      position: absolute;
+      content: "";
+      height: 26px;
+      width: 26px;
+      left: 4px;
+      bottom: 4px;
+      background-color: white;
+      transition: .4s;
+      border-radius: 50%;
+    }
+    input:checked + .slider {
+      background-color: #2196F3;
+    }
+    input:checked + .slider:before {
+      transform: translateX(26px);
+    }
+    label {
+      margin-left: 10px;
+    }
+    .volume-control {
+      width: 100%;
+    }
+    .volume-value {
+      text-align: right;
+      margin-top: 5px;
+      color: #666;
+    }
+    .control-mode {
+      margin: 10px 0;
+    }
+    .volume-section {
+      margin-top: 10px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    .disabled {
+      opacity: 0.5;
+      pointer-events: none;
+    }
+  </style>
+</head>
+<body>
+  <h2>Hotstar Ad Controller</h2>
+  <div class="control-group">
+    <div class="switch">
+      <label class="toggle">
+        <input type="checkbox" id="mainToggle">
+        <span class="slider"></span>
+      </label>
+      <label for="mainToggle">Enable Ad Control</label>
+    </div>
+    
+    <div class="control-mode">
+      <input type="radio" id="muteMode" name="controlMode" value="mute">
+      <label for="muteMode">Mute Ads</label>
+      <br>
+      <input type="radio" id="volumeMode" name="controlMode" value="volume">
+      <label for="volumeMode">Control Volume</label>
+    </div>
+
+    <div id="volumeSection" class="volume-section">
+      <label for="volumeControl">Ad Volume Level:</label>
+      <input type="range" id="volumeControl" class="volume-control" min="0" max="100" value="20">
+      <div id="volumeValue" class="volume-value">20%</div>
+    </div>
+  </div>
+  <script src="popup.js"></script>
+</body>
+</html>
